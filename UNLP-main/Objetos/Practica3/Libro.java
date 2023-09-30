@@ -61,6 +61,11 @@ public class Libro {
     public String getPrimerAutorNombre(){
         return primerAutor.getNombre();
     } 
+    
+    public Autor getPrimerAutor(){
+        Autor unPrimerAutor = new Autor();
+        return unPrimerAutor;
+    }
     public String getISBN(){
         return ISBN;
     } 
