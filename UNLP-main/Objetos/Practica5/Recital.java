@@ -28,7 +28,6 @@ public abstract class Recital {
         }
     }
     
-    
     public int getCantTemas() {
         return cantTemas;
     }
@@ -54,7 +53,15 @@ public abstract class Recital {
     return aux;
     }
     
-    public abstract void agregarTema(String tema);
+    public boolean HayLugar(){
+        return this.getCantTemas() < this.getMaxTemas();
+    }
+    
+    public  void agregarTema(String tema){
+        if(this.HayLugar()){
+            this.listaTemas[this.cantTemas++] = tema;
+        }
+    }
     
     
     public  String Actuar(){

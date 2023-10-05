@@ -33,15 +33,17 @@ public class EventoOcacional extends Recital{
         return dia;
     }
     
-    public boolean HayLugar(){
+   /* public boolean HayLugar(){
         return this.getCantTemas() < this.getMaxTemas();
     }
 @Override
     public void agregarTema(String tema){
         if(this.HayLugar()){
-            this.getListaTemas()[this.getCantTemas() + 1] = tema;
+            this.aumentarCantTemas();
+            this.getListaTemas()[this.getCantTemas()] = tema;
         }
     }
+*/
     
     
 @Override

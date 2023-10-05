@@ -19,7 +19,7 @@ public class Gira extends Recital {
         this.nombreGira = nomGira;
         this.cantFechas = cantFechas;
         this.fechaMax = fechasMax;
-        this.listaFechas = new Fecha[cantFechas];
+        this.listaFechas = new Fecha[fechaMax];
         int i;
         for(i=0; i< this.cantFechas; i++){
             this.getListaFechas()[i] = new Fecha(GeneradorAleatorio.generarString(5),(GeneradorAleatorio.generarInt(31) + 1));
@@ -42,17 +42,6 @@ public class Gira extends Recital {
 
     public void setNombreGira(String nombre) {
         this.nombreGira = nombre;
-    }
-    
-     public boolean HayLugar(){
-        return this.getCantTemas() < this.getMaxTemas();
-    }
-     
-@Override //NO FUNCIONA
-    public void agregarTema(String tema){
-        if(this.HayLugar()){
-            this.getListaTemas()[this.getCantTemas() + 1] = tema;
-        }
     }
 @Override
     public String Actuar(){ 
@@ -77,7 +66,7 @@ public class Gira extends Recital {
     
     public void agregarFecha(Fecha f){ //ROMPE EL PROGRAMA
         if(this.HayEspacio()){
-            this.getListaFechas()[this.getCantFechas() + 1] = f;
+            this.getListaFechas()[this.cantFechas++] = f;
         }
     }
 @Override
