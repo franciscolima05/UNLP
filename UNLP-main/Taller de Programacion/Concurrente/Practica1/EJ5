@@ -1,0 +1,119 @@
+programa ej5
+procesos
+  proceso juntarFlores(ES flores : numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      flores := flores + 1
+  fin
+  proceso juntarPapeles(ES papeles : numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      papeles := + 1
+  fin
+  
+  proceso depositarFlores(E flores : numero)
+  comenzar
+    repetir flores
+      depositarFlor
+  fin
+  proceso LimpiarCalleFlores(E cant : numero; ES flores : numero)
+  comenzar
+    repetir cant - 1
+      juntarFlores(flores)
+      mover
+    juntarFlores(flores)
+    depositarFlores(flores)
+  fin
+  proceso LimpiarAvenidaPapeles(E cant : numero; ES papeles : numero)
+  comenzar
+    repetir cant - 1
+      juntarPapeles(papeles)
+      mover
+  fin
+  proceso depositarP(E papeles : numero)
+  comenzar
+    si(HayFlorEnLaBolsa)
+      repetir papeles
+        depositarPapel
+  fin
+areas 
+  area_1: AreaP(1,75,15,75) 
+  area1_2: AreaP(1,80,15,80) 
+  area_2: AreaP(75,80,75,99)   
+  area2_2: AreaP(80,80,80,99) 
+  area_3: AreaP(70,15,99,15) 
+  area3_2: AreaP(70,10,99,10) 
+  area_4: AreaP(10,1,10,10) 
+  area4_2: AreaP(15,1,15,10) 
+robots
+  robot robot1
+  variables
+    flores : numero
+  comenzar
+    derecha
+    flores := 0
+    LimpiarCalleFlores(15, flores)
+    Pos(1, 80)
+    flores := 0
+    LimpiarCalleFlores(15, flores)
+  fin
+  robot robot2
+  variables
+    papeles : numero
+  comenzar
+    LimpiarAvenidaPapeles(20, papeles)
+    Pos(75, 80)
+    depositarP(papeles)
+    Pos(80, 80)
+    papeles := 0
+    LimpiarAvenidaPapeles(20, papeles)
+    depositarP(papeles)
+  fin
+  robot robot3
+  variables
+    flores : numero
+  comenzar
+    derecha
+    flores := 0
+    LimpiarCalleFlores(30, flores)
+    Pos(70, 15)
+    flores := 0
+    LimpiarCalleFlores(30, flores)
+  fin
+  robot robot4
+  variables
+    papeles : numero
+  comenzar
+    LimpiarAvenidaPapeles(10, papeles)
+    Pos(10, 1)
+    depositarP(papeles)
+    Pos(15, 1)
+    papeles := 0
+    LimpiarAvenidaPapeles(10, papeles)
+    Pos(15, 1)
+    depositarP(papeles)
+  fin
+  
+variables
+  r1 : robot1
+  r2 : robot2
+  r3 : robot3
+  r4 : robot4
+comenzar
+  AsignarArea(r1, area_1)
+  AsignarArea(r1, area1_2)
+  AsignarArea(r2, area_2)
+  AsignarArea(r2, area2_2)
+  AsignarArea(r3, area_3)
+  AsignarArea(r3, area3_2)
+  AsignarArea(r4, area_4)
+  AsignarArea(r4, area4_2)
+  
+  Iniciar(r1, 1, 75)
+  Iniciar(r2, 75, 80)
+  Iniciar(r3, 70, 10)
+  Iniciar(r4, 10, 1)
+fin 
+  

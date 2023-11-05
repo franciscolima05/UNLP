@@ -1,0 +1,140 @@
+programa ej4
+procesos
+  proceso maximo(E c1 : numero; E c2 : numero; E c3 : numero; E c4 : numero; ES idMax : numero)
+  variables
+    aux : numero
+  comenzar
+    aux := -1
+    si(aux < c1)
+      aux:= c1
+      idMax := 1
+    si(aux < c2)
+      idMax := 2
+      aux := c2
+    si(aux < c3)
+      idMax := 3
+      aux := c3
+    si(aux < c4)
+      idMax := 4
+      aux := c4
+  fin
+  proceso indicarFin
+  comenzar
+    EnviarMensaje(F, r1)
+    EnviarMensaje(F, r2)
+    EnviarMensaje(F, r3)
+    EnviarMensaje(F, r4)
+  fin
+areas
+  cuadrante : AreaPC(2, 2, 10, 10)
+  areaJ : AreaP(1, 1, 1, 1)
+  area1 : AreaP(2, 1, 2, 1)
+  area2 : AreaP(3, 1, 3, 1)
+  area3 : AreaP(4, 1, 4, 1)
+  area4 : AreaP(5, 1, 5, 1)
+robots
+  robot robotJ
+  variables
+    aux, x, y : numero
+    c1, c2, c3, c4 : numero
+    idMax: numero
+  comenzar
+    idMax := 0
+    c1 := 0
+    c2 := 0 
+    c3 := 0
+    c4 := 0
+    Random(x, 2, 10)
+    Random(y, 2, 10)
+    repetir 4
+      Random(aux, 1, 4)
+      si(aux = 1)
+        EnviarMensaje(V, r1)
+        EnviarMensaje(x, r1)
+        EnviarMensaje(y, r1)
+        EnviarMensaje(c1, r1)
+        RecibirMensaje(c1, r1)
+      sino
+        si(aux = 2)
+          EnviarMensaje(V, r2)
+          EnviarMensaje(x, r2)
+          EnviarMensaje(y, r2)
+          EnviarMensaje(c2, r2)
+          RecibirMensaje(c2, r2)  
+        sino
+          si(aux = 3)
+            EnviarMensaje(V, r3)
+            EnviarMensaje(x, r3)
+            EnviarMensaje(y, r3)
+            EnviarMensaje(c3, r3)
+            RecibirMensaje(c3, r3)
+          sino
+            EnviarMensaje(V, r4)
+            EnviarMensaje(x, r4)
+            EnviarMensaje(y, r4)
+            EnviarMensaje(c4, r4)
+            RecibirMensaje(c4, r4)
+    indicarFin
+    maximo(c1, c2, c3, c4, idMax)
+    Informar(idMax)
+  fin
+  robot robotR
+  variables
+    c, id, x, y : numero
+    ok : boolean
+    PavI, PcaI : numero
+  comenzar
+    PavI := PosAv
+    PcaI := PosCa
+    ok := V
+    mientras(ok = V)
+      RecibirMensaje(ok, rJefe)
+      si(ok = V)
+        RecibirMensaje(x, rJefe)
+        RecibirMensaje(y, rJefe)
+        RecibirMensaje(c, rJefe)
+        BloquearEsquina(x,y)
+        Pos(x, y)
+        si(HayFlorEnLaEsquina)
+          tomarFlor
+        c := c + 1
+        EnviarMensaje(c, rJefe)
+        Pos(PavI, PcaI)
+        LiberarEsquina(x, y)
+  fin
+variables
+  r1 : robotR
+  r2 : robotR  
+  r3 : robotR  
+  r4 : robotR  
+  rJefe : robotJ
+comenzar
+  AsignarArea(r1, cuadrante)
+  AsignarArea(r1, area1)
+  AsignarArea(r2, cuadrante)
+  AsignarArea(r2, area2)
+  AsignarArea(r3, cuadrante)
+  AsignarArea(r3, area3)
+  AsignarArea(r4, cuadrante)
+  AsignarArea(r4, area4)
+  AsignarArea(rJefe, areaJ)
+ 
+  Iniciar(r1, 2, 1)
+  Iniciar(r2, 3, 1)
+  Iniciar(r3, 4, 1)
+  Iniciar(r4, 5, 1)
+  Iniciar(rJefe, 1, 1)    
+fin
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
