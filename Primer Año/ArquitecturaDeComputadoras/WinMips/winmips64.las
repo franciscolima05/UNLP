@@ -1,0 +1,1 @@
+C:\Users\Francisco\Desktop\UNLP-main\ArquitecturaDeComputadoras\WinMips\Practica6\pruebapot.s
