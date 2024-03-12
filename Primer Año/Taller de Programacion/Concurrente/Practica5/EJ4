@@ -1,0 +1,97 @@
+programa ej4
+procesos  
+  proceso juntarF(ES f : numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      f := f + 1
+  fin
+areas
+  area1 : AreaP(1, 1, 1, 1)
+  area2 : AreaP(2, 1, 2, 1)
+  area3 : AreaP(3, 1, 3, 1)
+  areaF : AreaP(4, 1, 4, 1)
+  cuadrante : AreaPC(40, 40, 60, 60)
+  esquina : AreaPC(10, 10, 10, 10)
+robots
+  robot robotC
+  variables
+    id : numero
+    x, y : numero
+    total : numero
+    f : numero
+  comenzar
+    repetir 8
+      Random(id, 1, 3)
+      Random(x, 40, 60)
+      Random(y, 40, 60)
+      si(id = 1)
+        EnviarMensaje(V, r1)
+        EnviarMensaje(x, r1)
+        EnviarMensaje(y, r1)
+      sino
+        si(id = 2)
+          EnviarMensaje(V, r2)
+          EnviarMensaje(x, r2)
+          EnviarMensaje(y, r2)
+        sino
+          EnviarMensaje(V, r3)
+          EnviarMensaje(x, r3)
+          EnviarMensaje(y, r3)
+    EnviarMensaje(F, r1)
+    EnviarMensaje(F, r2)
+    EnviarMensaje(F, r3)
+    repetir 3
+      RecibirMensaje(f, *)
+      total := f + total
+    Informar(total)
+  fin
+  robot robot1
+  variables
+    ok : boolean
+    f : numero
+    x, y : numero
+    posX, posY : numero
+  comenzar
+    ok := V
+    posX := PosAv
+    posY := PosCa
+    mientras(ok)
+      RecibirMensaje(ok, rJefe)
+      si(ok)
+        RecibirMensaje(x, rJefe)
+        RecibirMensaje(y, rJefe)
+        BloquearEsquina(x, y)
+        Pos(x, y)
+        juntarF(f)
+        Pos(posX, posY)
+        LiberarEsquina(x, y)
+    BloquearEsquina(10, 10)
+    Pos(10, 10)
+    repetir f
+      depositarFlor
+    EnviarMensaje(f, rJefe)
+    Pos(posX, posY)
+    LiberarEsquina(10, 10)
+  fin
+variables
+  r1 : robot1
+  r2 : robot1
+  r3 : robot1
+  rJefe : robotC
+comenzar
+  AsignarArea(r1, area1)
+  AsignarArea(r2, area2)
+  AsignarArea(r3, area3)
+  AsignarArea(rJefe, areaF)
+  AsignarArea(r1, cuadrante)
+  AsignarArea(r2, cuadrante)
+  AsignarArea(r3, cuadrante)
+  AsignarArea(r1, esquina)
+  AsignarArea(r2, esquina)
+  AsignarArea(r3, esquina)
+  Iniciar(r1, 1, 1)
+  Iniciar(r2, 2, 1)
+  Iniciar(r3, 3, 1)
+  Iniciar(rJefe, 4, 1)
+fin

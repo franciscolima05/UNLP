@@ -1,0 +1,149 @@
+programa parcial
+procesos
+  proceso juntarF(ES f : numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      f := f + 1
+  fin
+  proceso juntarP(ES p : numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      p := p + 1
+  fin
+  proceso lado(ES f : numero; ES p : numero; E cant : numero)
+  comenzar
+    cant := cant 
+    repetir cant
+      juntarF(f)
+      juntarP(p)
+      mover
+    juntarF(f)
+    juntarP(p)
+  fin    
+areas
+  area1 : AreaPC(1, 1, 20, 20)
+  area2 : AreaP(21, 1, 40, 20)
+  areaC : AreaP(23, 23 ,23 ,23)
+  esquinaF : AreaPC(21, 21, 21, 21)
+  esquinaP : AreaPC(22, 22, 22, 22)
+robots
+  robot robot1
+  variables
+    total, id : numero
+    l, a : numero
+    f, p : numero
+    x, y : numero
+  comenzar
+    RecibirMensaje(id, rJefe)
+    RecibirMensaje(l, rJefe)
+    RecibirMensaje(a, rJefe)
+    Informar(l)
+    Informar(a)
+    repetir 2
+      f := 0
+      p := 0
+      total := 0
+      repetir l
+        juntarF(f)
+        juntarP(p)
+        mover
+      juntarF(f)
+      juntarP(p)
+      x := PosAv
+      y := PosCa
+      repetir f
+        BloquearEsquina(21, 21)
+        Pos(21, 21)
+        depositarFlor
+        Pos(x, y)
+        LiberarEsquina(21, 21)
+      repetir p
+        BloquearEsquina(22, 22)
+        Pos(22, 22)
+        depositarPapel
+        Pos(x, y)
+        LiberarEsquina(22, 22)
+      total := f + p
+      EnviarMensaje(id, rJefe)
+      EnviarMensaje(total, rJefe)
+      total := 0
+      derecha
+      f := 0
+      p := 0
+      repetir a
+        juntarF(f)
+        juntarP(p)
+        mover
+      juntarF(f)
+      juntarP(p)
+      x := PosAv
+      y := PosCa
+      repetir f
+        BloquearEsquina(21, 21)
+        Pos(21, 21)
+        depositarFlor
+        Pos(x, y)
+        LiberarEsquina(21, 21)
+      repetir p
+        BloquearEsquina(22, 22)
+        Pos(22, 22)
+        depositarPapel
+        Pos(x, y)
+        LiberarEsquina(22, 22)
+      total := f + p
+      EnviarMensaje(id, rJefe)
+      EnviarMensaje(total, rJefe)
+      derecha
+  fin
+  robot robotC
+  variables
+    c1, c2 : numero
+    aux : numero
+    id : numero
+    x, y : numero
+  comenzar
+    Random(x, 1, 20)
+    Random(y, 1, 19)
+    EnviarMensaje(1, r1)
+    c1 := 0
+    c2 := 0
+    EnviarMensaje(2, r2)
+    EnviarMensaje(x, r1)
+    EnviarMensaje(y, r1)
+    Random(x, 1, 20)
+    Random(y, 1, 20)
+    EnviarMensaje(x, r2)
+    EnviarMensaje(y, r2)
+    repetir 8
+      RecibirMensaje(id, *)
+      si(id = 1)
+        RecibirMensaje(aux, r1)
+        c1 := c1 + aux
+      sino
+        RecibirMensaje(aux, r2)
+        c2 := c2 + aux
+    si(c1 > c2)
+      Informar(1)
+    sino
+      Informar(2)
+  fin
+variables
+  r1 : robot1
+  r2 : robot1
+  rJefe : robotC
+comenzar
+  AsignarArea(r1, area1)
+  AsignarArea(r1, esquinaF)
+  AsignarArea(r1, esquinaP)
+  AsignarArea(r2, area2)
+  AsignarArea(r2, esquinaF)
+  AsignarArea(r2, esquinaP)
+  AsignarArea(rJefe, areaC)
+
+  Iniciar(r1, 1, 1)
+  Iniciar(r2, 21, 1)
+  Iniciar(rJefe, 23, 23)
+fin
+    

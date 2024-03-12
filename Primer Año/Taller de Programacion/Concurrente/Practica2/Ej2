@@ -1,0 +1,76 @@
+programa Ej3
+procesos
+  proceso juntarFlores(ES flores : numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      flores := flores + 1
+  fin
+  proceso juntarPapeles(ES papeles : numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      papeles := papeles + 1
+  fin
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso escalon(ES masFlores : numero)
+  variables
+    alto : numero
+    flores : numero
+    papeles : numero
+  comenzar
+    flores := 0
+    papeles := 0
+    Random(alto, 1, 5)
+    repetir alto
+      juntarPapeles(papeles)
+      juntarFlores(flores)
+      mover
+    juntarPapeles(papeles)
+    juntarFlores(flores)
+    derecha
+    mover
+    izquierda
+    si(flores > papeles)
+      masFlores := masFlores + 1
+  fin
+areas
+  ciudad : AreaC(1, 1, 100, 100)
+robots
+  robot recolector
+  variables
+    masFlores : numero
+  comenzar
+    repetir 4
+      escalon(masFlores)
+    EnviarMensaje(masFlores, jefe)
+  fin
+  robot robotJ
+  variables
+    cantEsquinas : numero
+    aux : numero
+  comenzar
+    repetir 3
+      RecibirMensaje(aux, *)
+      cantEsquinas := cantEsquinas + aux
+    Informar(cantEsquinas)
+  fin
+variables
+  r1, r2, r3 : recolector
+  jefe : robotJ
+comenzar
+  AsignarArea(r1, ciudad)
+  AsignarArea(r2, ciudad)
+  AsignarArea(r3, ciudad)  
+  AsignarArea(jefe, ciudad)
+  Iniciar(jefe, 1, 1)
+  Iniciar(r1, 2, 1)
+  Iniciar(r2, 7, 1)
+  Iniciar(r3, 12, 1)
+fin
+    
+    

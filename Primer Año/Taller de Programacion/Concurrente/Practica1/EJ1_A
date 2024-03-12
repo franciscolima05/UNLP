@@ -1,0 +1,63 @@
+programa ej1Practica1
+
+procesos
+  proceso Juntar(ES flores : numero)
+  comenzar 
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      flores := flores + 1
+  fin
+     
+  proceso DepositarFlores
+  comenzar
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+  fin
+     
+  proceso RecorrerAv(ES flores : numero; ES esquina : numero)
+  comenzar
+    flores := 0
+    esquina := 0
+    repetir 99
+      si(HayFlorEnLaEsquina)
+        Juntar(flores)
+      sino
+        esquina := esquina + 1
+      mover     
+    DepositarFlores  
+    Informar(flores)
+    Informar(esquina)
+  fin
+    
+  proceso RecorrerTodas
+  variables
+    flores : numero
+    esquina : numero
+  comenzar  
+    repetir 3
+      RecorrerAv(flores, esquina)
+      Pos(PosAv + 1, 1)
+  fin
+  
+    
+    
+areas
+  ciudad : AreaC(1, 1, 100, 100)
+
+robots
+  robot robot1
+  variables
+    flores : numero
+    esquina : numero
+  comenzar
+    flores := 0
+    esquina := 0
+    Pos(1,1)
+    RecorrerTodas
+  fin
+variables
+  r1 : robot1
+comenzar
+  AsignarArea(r1, ciudad)
+  Iniciar(r1, 1, 1)
+fin   

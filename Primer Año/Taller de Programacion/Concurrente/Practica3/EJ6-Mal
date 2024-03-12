@@ -1,0 +1,137 @@
+programa ej6
+procesos
+  proceso juntarF
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+  proceso juntarP
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+  fin
+  proceso cuadradoF(E lado : numero)
+  comenzar
+    repetir 2
+      repetir lado
+        juntarF
+        mover
+      derecha
+      repetir lado
+        juntarF
+        mover
+      derecha
+  fin
+  proceso cuadradoP(E lado : numero)
+  comenzar
+    repetir 2
+      repetir lado
+        juntarP
+        mover
+      derecha
+      repetir lado
+        juntarP
+        mover
+      derecha
+  fin
+  proceso cuadradoFP(E lado : numero)
+  comenzar
+    repetir 2
+      repetir lado
+        juntarF
+        juntarP
+        mover
+      derecha
+      repetir lado
+        juntarF
+        juntarP
+        mover
+      derecha
+  fin
+  proceso identificar
+  comenzar
+    EnviarMensaje(1, r1)
+    EnviarMensaje(2, r2)
+    EnviarMensaje(3, r3)
+  fin
+areas
+  area : AreaPC(2, 2, 16, 16)
+  pri : AreaP(1, 20, 1, 20)
+  seg : AreaP(1, 21, 1, 21)
+  ter : AreaP(1, 22, 1, 22)
+  area1 : AreaP(1, 1, 1, 1)
+robots
+  robot robot1
+  variables
+    id, y : numero
+  comenzar
+    RecibirMensaje(id, RF)
+    cuadradoF(6)
+    EnviarMensaje(id, RF)
+    RecibirMensaje(y, RF)
+    Pos(1, y)
+  fin
+  robot robot2
+  variables
+    id, y : numero
+  comenzar 
+    RecibirMensaje(id, RF)
+    cuadradoFP(10)
+    EnviarMensaje(id, RF)
+    RecibirMensaje(y, RF)
+    Pos(1, y)
+  fin  
+  robot robot3
+  variables
+    id, y : numero
+  comenzar
+    RecibirMensaje(id, RF)
+    cuadradoP(7)
+    EnviarMensaje(id, RF)
+    RecibirMensaje(y, RF)
+    Pos(1, y)
+  fin
+  robot robotF
+  variables
+    id, pos : numero
+  comenzar
+    identificar
+    pos := 20
+    repetir 3
+      RecibirMensaje(id, *)
+      si(id = 1)
+        EnviarMensaje(pos, r1)
+      sino
+        si(id = 2)
+          EnviarMensaje(pos, r2)
+        sino
+          EnviarMensaje(pos, r3)
+      pos := pos + 1
+  fin
+variables
+  r1 : robot1
+  r2 : robot2
+  r3 : robot3
+  RF : robotF
+comenzar
+  AsignarArea(r1, area)
+  AsignarArea(r1, pri)
+  AsignarArea(r2, pri)
+  AsignarArea(r3, pri)
+  AsignarArea(r1, seg)
+  AsignarArea(r2, seg)
+  AsignarArea(r3, seg)
+  AsignarArea(r1, ter)
+  AsignarArea(r2, ter)
+  AsignarArea(r3, ter)
+  AsignarArea(r2, area)
+  AsignarArea(r3, area)
+  AsignarArea(RF, area1)
+  
+  Iniciar(r1, 2, 2)
+  Iniciar(r2, 5, 5)
+  Iniciar(r3, 9, 9)
+  Iniciar(RF, 1, 1)
+fin
+
+  

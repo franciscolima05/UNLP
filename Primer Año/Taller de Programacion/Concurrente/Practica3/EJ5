@@ -1,0 +1,116 @@
+programa ej5
+procesos
+  proceso recorrido(ES y : numero; E ID : numero; ES x : numero; ES ok : boolean)
+  comenzar
+    x := PosAv
+    y := PosCa
+    BloquearEsquina(11, 11)
+    Pos(11, 11)
+    si(HayPapelEnLaEsquina)
+      tomarPapel
+      Pos(x, y)
+      depositarPapel
+      LiberarEsquina(11, 11)
+      mover
+    sino
+      EnviarMensaje(ID, RC)
+      EnviarMensaje(y, RC)
+      ok := F
+      Pos(x, y)
+      LiberarEsquina(11, 11)
+  fin
+  proceso identificar
+  comenzar
+    EnviarMensaje(1, r1)
+    EnviarMensaje(2, r2)
+    EnviarMensaje(3, r3)
+    EnviarMensaje(4, r4)
+  fin
+  proceso maximo(E c1 : numero; E c2 : numero; E c3 : numero; E c4 : numero; ES maxID : numero)
+  variables
+    max : numero
+  comenzar
+    max := 1
+    si(max < c1)
+      max := c1
+      maxID := 1
+    si(max < c2)
+      max := c2
+      maxID := 2
+    si(max < c3)
+      max := c3
+      maxID := 3
+    si(max < c4)
+      max := c4
+      maxID := 4
+  fin
+areas
+  area1 : AreaP(4, 1, 4, 100)
+  area2 : AreaP(6, 1, 6, 100)
+  area3 : AreaP(8, 1, 8, 100)
+  area4 : AreaP(10, 1, 10, 100)
+  fuente : AreaPC(11, 11, 11, 11)
+  areaC : AreaP(1, 1, 1, 1)
+robots
+  robot rComp
+  variables
+    id, x, y : numero
+    ok : boolean
+  comenzar
+    RecibirMensaje(id, RC)
+    ok := V
+    mientras(PosCa < 100) & (ok = V)
+      recorrido(y, id, x, ok)
+    si(ok = V)
+      EnviarMensaje(id, RC)
+      EnviarMensaje(PosCa, RC)
+  fin
+
+  robot rCoor
+  variables
+    pos1, pos2, pos3, pos4 : numero
+    id : numero
+  comenzar
+    identificar
+    repetir 4
+      RecibirMensaje(id, *)
+      si(id = 1)
+        RecibirMensaje(pos1, r1)
+      sino
+        si(id = 2)
+          RecibirMensaje(pos2, r2)
+        sino
+          si (id = 3)
+            RecibirMensaje(pos3, r3)
+          sino
+            RecibirMensaje(pos4, r4)
+    maximo(pos1, pos2, pos3, pos4, id)
+    Informar(id)
+  fin  
+variables
+  r1 : rComp
+  r2 : rComp
+  r3 : rComp
+  r4 : rComp
+  RC : rCoor
+comenzar
+  AsignarArea(r1, fuente)
+  AsignarArea(r2, fuente)
+  AsignarArea(r3, fuente)
+  AsignarArea(r4, fuente)
+  AsignarArea(r1, area1)
+  AsignarArea(r2, area2)
+  AsignarArea(r3, area3)
+  AsignarArea(r4, area4)
+  AsignarArea(RC, areaC)
+  
+  Iniciar(r1, 4, 1)
+  Iniciar(r2, 6, 1)
+  Iniciar(r3, 8, 1)
+  Iniciar(r4, 10, 1)
+  Iniciar(RC, 1, 1)
+fin
+    
+    
+
+

@@ -1,0 +1,172 @@
+programa parcial9
+procesos
+  proceso juntarP(ES papeles : numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      papeles := papeles + 1
+  fin
+  proceso juntarF(ES flores : numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      flores := flores + 1
+  fin
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+areas
+  cuadrante : AreaPC(1, 1, 9, 9)
+  area1 : AreaP(20, 1, 20, 1)
+  area2 : AreaP(20, 2, 20, 2)
+  area3 : AreaP(20, 3, 20, 3)
+  area4 : AreaP(20, 4, 20, 4)
+  areaC : AreaP(20, 15, 20, 15)
+robots
+  robot robot1
+  variables  
+    f , p : numero
+    id : numero
+    x, y, total : numero
+  comenzar
+    RecibirMensaje(id, rJefe)
+    si(id = 1)
+      Pos(1, 2)
+    sino
+      Pos(1, 6)
+    derecha
+    juntarP(p)
+    juntarF(f)
+    repetir 4
+      x := PosCa
+      y := PosAv + 1
+      BloquearEsquina(y, x)
+      mover
+      juntarP(p)
+      juntarF(f)
+      mover
+      LiberarEsquina(y, x)
+      juntarP(p)
+      juntarF(f)
+    izquierda
+    mover
+    juntarP(p)
+    juntarF(f)
+    mover
+    juntarP(p)
+    juntarF(f)
+    izquierda
+    repetir 4
+      x := PosCa
+      y := PosAv-1
+      BloquearEsquina(y, x)
+      mover
+      juntarP(p)
+      juntarF(f)
+      mover
+      LiberarEsquina(y, x)
+      juntarP(p)
+      juntarF(f)
+    izquierda
+    mover
+    juntarP(p)
+    juntarF(f)
+    mover
+    juntarP(p)
+    juntarF(f)
+    izquierda
+    total := f + p
+    EnviarMensaje(total, rJefe)
+  fin
+  robot robot2
+  variables  
+    f, p, total : numero
+    id, x, y : numero
+  comenzar
+    RecibirMensaje(id, rJefe)
+    si(id = 1)
+      Pos(2,1)
+    sino
+      Pos(6, 1)
+    juntarP(p)
+    juntarF(f)
+    repetir 4
+      x := PosAv
+      y := PosCa + 1
+      BloquearEsquina(x, y)
+      mover
+      juntarP(p)
+      juntarF(f)
+      mover
+      LiberarEsquina(x, y)
+      juntarP(p)
+      juntarF(f)
+    derecha
+    mover
+    juntarP(p)
+    juntarF(f)
+    mover
+    juntarP(p)
+    juntarF(f)
+    derecha
+    repetir 4
+      x := PosAv
+      y := PosCa - 1
+      BloquearEsquina(x, y)
+      mover
+      juntarP(p)
+      juntarF(f)
+      mover
+      LiberarEsquina(x, y)
+      juntarP(p)
+      juntarF(f)
+    derecha
+    mover
+    juntarP(p)
+    juntarF(f)
+    mover
+    juntarP(p)
+    juntarF(f)
+    derecha
+    total := f + p
+    EnviarMensaje(total, rJefe)
+  fin      
+   
+   
+  robot robotC
+  variables
+    aux, total : numero
+  comenzar
+    EnviarMensaje(1, r1)
+    EnviarMensaje(2, r2)
+    EnviarMensaje(1, a1)
+    EnviarMensaje(2, a2)
+    repetir 4
+      RecibirMensaje(aux, *)
+      total := total + aux
+    Informar(total)
+  fin
+variables
+  r1 : robot1
+  r2 : robot1
+  a1 : robot2
+  a2 : robot2
+  rJefe : robotC
+comenzar
+  AsignarArea(r1, cuadrante)
+  AsignarArea(r2, cuadrante)
+  AsignarArea(a1, cuadrante)
+  AsignarArea(a2, cuadrante)
+  AsignarArea(r1, area1)
+  AsignarArea(r2, area2)
+  AsignarArea(a1, area3)
+  AsignarArea(a2, area4)
+  AsignarArea(rJefe, areaC)
+  Iniciar(r1, 20, 1)
+  Iniciar(r2, 20, 2)
+  Iniciar(a1, 20, 3)
+  Iniciar(a2, 20, 4)
+  Iniciar(rJefe, 20, 15)
+fin
