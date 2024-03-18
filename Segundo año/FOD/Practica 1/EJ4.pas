@@ -104,14 +104,15 @@ procedure exportarTxt(var al : empleados; var te: text);
 var
 	e : empleado;
 begin
+	reset(al);
+	rewrite(te);
 	while(not EOF(al)) do
 		begin
 			read(al, e);
-			writeln(te, 'Nombre: ', e.nom);
-			writeln(te, 'Apellido: ', e.apellido);
-			writeln(te, 'Numero: ', e.num);
-			writeln(te, 'DNI: ', e.dni);
-			writeln(te, 'Edad: ', e.edad);
+			with e do
+				begin
+					writeln(te, nom, apellido, dni, edad);
+				end;
 		end;
 end;
 
@@ -119,6 +120,7 @@ procedure imprimirTxt(var te : text);
 var
 	linea : string;
 begin
+	reset(te);
 	while(not EOF(te)) do
 		begin
 			readln(te, linea);
@@ -182,7 +184,7 @@ var
 	ruta : string;
 	ok : boolean;
 	te : text;
-	linea : string;
+	//linea : string;
 begin
 	writeln('ingrese ruta: ');
 	readln(ruta);
@@ -213,8 +215,11 @@ begin
 					writeln('ingrese ruta para el archivo de texto');
 					readln(ruta);
 					assign(te, ruta);
+					reset(al);
 					rewrite(te);
 					exportarTxt(al, te);
+					imprimirTxt(te);
+					close(te);
 				end;
 		end;
 	end;
