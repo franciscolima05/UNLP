@@ -60,8 +60,20 @@ procedure modificarNovela(var al : arch);
 var
 	n : novela;
 	co : integer;
+	ok : boolean
 begin
+	ok := true;
 	writeln('ingrese codigo');
 	readln(co);
 	reset(al);
+	while(not EOF(al)) and (ok) do
+		begin
+			read(al, n);
+			if(n.code = co) then
+				//desplegar menu de opciones para poder elegir que campo modificar
+				//poner ok = false
+		
+		//hacer los close
+	
+			
 
