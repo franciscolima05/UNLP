@@ -1,0 +1,15 @@
+1 15000 Samsung
+100 200 Chinoski
+GalaxyS3
+2 30000 Apple
+300 200 EEUU
+iPhone15
+3 20000 Huawei
+30 50 Taiwanes
+poronger52
+4 5000 Alcatel
+20 0 japanis
+alcateluantach
+5 2000 Alcatel
+10 0 japanis
+alcateltutach

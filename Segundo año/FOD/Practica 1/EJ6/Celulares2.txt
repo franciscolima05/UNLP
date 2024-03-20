@@ -1,0 +1,15 @@
+1  1.5000000000000000E+004  Samsung
+100 200  Chinoski
+GalaxyS3
+2  3.0000000000000000E+004  Apple
+300 200  EEUU
+iPhone15
+3  2.0000000000000000E+004  Huawei
+30 50  Taiwanes
+poronger52
+4  5.0000000000000000E+003  Alcatel
+20 0  japanis
+alcateluantach
+5  2.0000000000000000E+003  Alcatel
+10 0  japanis
+alcateltutach

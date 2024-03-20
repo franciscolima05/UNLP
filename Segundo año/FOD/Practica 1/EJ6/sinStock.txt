@@ -1,0 +1,6 @@
+4  5.0000000000000000E+003  Alcatel
+20 0  japanis
+alcateluantach
+5  2.0000000000000000E+003  Alcatel
+10 0  japanis
+alcateltutach
