@@ -1,0 +1,12 @@
+1 
+Buenos Aires
+200
+250
+1 
+Chaco
+50
+150
+8 
+Formosa
+50
+120

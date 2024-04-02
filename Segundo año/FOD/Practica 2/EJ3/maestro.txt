@@ -1,0 +1,15 @@
+1
+Mayonesa
+800
+50
+25
+2
+Tomates
+100
+100
+50
+3
+Cerveza en lata
+2500
+250
+100

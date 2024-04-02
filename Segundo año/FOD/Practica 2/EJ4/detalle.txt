@@ -1,0 +1,12 @@
+3
+Buenos Aires
+4000
+6000
+1
+Cordoba
+50
+75
+2
+Cordoba
+100
+100
