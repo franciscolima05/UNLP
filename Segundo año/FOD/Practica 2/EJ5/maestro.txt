@@ -1,0 +1,18 @@
+1
+Carne 
+Frios
+200
+350
+7000.0
+2
+Yogur
+Lacteos
+300
+350
+1500.0
+3
+Yerba
+Productos esenciales
+200
+300
+2000.0
