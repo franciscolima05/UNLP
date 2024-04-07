@@ -1,0 +1,8 @@
+2 1 5 250 Brusellas
+1 1 4 200 Buenos Aires
+1 1 7 400 Buenos Aires
+1 2 5 200 Buenos Aires
+1 1 9 200 Carlos Paz
+4 4 9 150 Carlos Paz
+2 1 5 200 Montevideo
+4 5 8 100 Montevideo

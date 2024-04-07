@@ -1,0 +1,8 @@
+1 1 4 25 Buenos Aires
+1 1 4 50 Buenos Aires
+1 1 4 75 Buenos Aires
+1 1 7 25 Buenos Aires
+1 1 7 50 Buenos Aires
+1 2 5 75 Buenos Aires
+4 4 9 50 Carlos Paz
+2 1 5 80 Montevideo
