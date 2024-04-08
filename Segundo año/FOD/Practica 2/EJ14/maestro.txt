@@ -1,0 +1,15 @@
+1 Buenos Aires
+1 La Plata
+200 300 150 250 100
+1 Buenos Aires
+2 La Matanza
+300 400 250 400 300
+2 Cordoba
+1 Carlos Paz
+100 200 250 100 150
+3 San Juan
+1 Posito
+500 400 600 200 100
+3 San Juan
+2 Capital
+200 100 150 200 300
