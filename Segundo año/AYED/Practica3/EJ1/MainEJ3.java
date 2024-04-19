@@ -26,7 +26,9 @@ public class MainEJ3 {
         tree.getChildren().get(1).getChildren().get(0).addChildren(new GeneralTree<>(30));
         
         
-        System.out.println(tree.nivel(15));
+        //System.out.println(tree.nivel(15));
+        
+        System.out.println(tree.esAncestro(7,30));
     }
     
 }

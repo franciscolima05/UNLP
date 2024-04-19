@@ -125,4 +125,56 @@ public class GeneralTree <T> {
         }
         return max;
     }
+    
+    public boolean esAncestro(T a, T b){
+        GeneralTree<T> aux = esAncestroHelper(this, a, b);
+        if(aux == null)
+            return false;
+        else{
+            return buscar(aux, a, b);
+        }
+    }
+    
+    
+    private GeneralTree<T> esAncestroHelper(GeneralTree<T> arb, T a, T b){
+        Queue<GeneralTree<T>> cola = new Queue<>();
+        GeneralTree<T> aux;
+        cola.enqueue(arb);
+        while(!cola.isEmpty()){
+            aux = cola.dequeue();
+            System.out.println("ELEMENTO: " + aux.getData());
+            if(aux.getData() == b){
+                return null;
+            }
+            else
+                if(aux.getData() == a){
+                    return aux;
+                }
+                else{
+                    for(GeneralTree<T> child : arb.getChildren()){
+                        cola.enqueue(child);
+                    }
+                }
+        }
+        return null;
+    }
+    
+    private boolean buscar (GeneralTree<T> arb, T a, T b){
+        Queue<GeneralTree<T>> cola = new Queue<>();
+        GeneralTree<T> aux;
+        cola.enqueue(arb);
+        while(!cola.isEmpty()){
+            aux = cola.dequeue();
+            System.out.println("BUSCANDO: " + b + " ELEMENTO: " + aux.getData());
+            if(aux.getData() == b){
+                return true;
+            }
+            else{
+                for(GeneralTree<T> child : aux.getChildren()){
+                    cola.enqueue(child);
+                }
+            }
+        }
+        return false;
+    }
 }
