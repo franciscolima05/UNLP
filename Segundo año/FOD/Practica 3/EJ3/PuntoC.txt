@@ -1,9 +1,12 @@
 0 zzz
 0 zzz
 0 zzz
-1 Carlos el terror
-1 NASHE
-2 Terror
-999 EL MAS NOMBRE
-2 EL MAS CAPO
-9 EL MAS GENEROSO
+1 El Miedo al error
+2000 Carlessen
+1 Miedo
+2 aksd
+43 asdg
+123 JEJOZ
+5 IMAGINE
+8000 MATI
+9 JAJA

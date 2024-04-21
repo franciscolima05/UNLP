@@ -60,6 +60,7 @@ procedure mantenimiento(var al : archivo);
 var
 	i, num : integer;
 	op : char;
+	ok : boolean;
 	n, nAux : novela;
 begin
 	reset(al);
@@ -71,18 +72,21 @@ begin
 	case op of
 		'A':
 			begin
+				leerNov(nAux);
 				read(al, n);
 				if(n.code = 0) then
-					writeln('No hay Lugar')
+					begin
+						seek(al, filesize(al));
+						write(al, nAux);
+					end
 				else
 					begin
-						leerNov(nAux);
 						writeln('EL NUMERO DE ARCHIVO A SOBREESCRIBIR ES: ', n.code);
 						num := n.code * -1;
 						writeln(num);
 						seek(al, 0);
-						for i := 0 to num do
-							read(al, n);
+						seek(al, num);
+						read(al, n);
 						seek(al, 0);
 						write(al, n);
 						seek(al, num);
@@ -105,13 +109,25 @@ begin
 				Writeln('Ingrese Numero de novela a eliminar: ');
 				readln(num);
 				read(al, n);
-				seek(al, num);
-				read(al, nAux);
-				seek(al, filepos(al) - 1);
-				write(al, n);
-				seek(al, 0);
-				nAux.code := nAux.code * -1;
-				write(al, nAux);
+				ok := true;
+				i := 0;
+				while(not EOF(al) and (ok)) do
+					begin
+						i := i + 1;
+						read(al, nAux);
+						if(nAux.code = num) then
+							ok := false;
+					end;
+				if(ok) then
+					writeln('NO EXISTE NOVELA CON ESE CODIGO')
+				else
+					begin
+						seek(al, filepos(al) - 1);
+						write(al, n);
+						seek(al, 0);
+						nAux.code := i * -1;
+						write(al, nAux);
+					end;
 			end;
 		end;
 	close(al);
