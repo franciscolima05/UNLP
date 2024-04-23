@@ -1,0 +1,12 @@
+1 100 25
+Vanish
+7 200 100
+Clorox
+5 1000 300
+Esponja
+2 700 140
+Leche
+8 300 50
+Carbon
+6 120 10
+Carne

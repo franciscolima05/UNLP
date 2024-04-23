@@ -1,0 +1,21 @@
+0 
+zzz
+0 0
+1 
+Carlitos
+2020 30
+5 
+Climax
+2018 25
+10 
+Norton
+1998 100
+7 
+NorVert
+2021 50
+3 
+ClicK
+2023 15
+2 
+PuntoNet
+2015 42

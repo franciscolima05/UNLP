@@ -1,0 +1,10 @@
+1 Pato
+10 Lechuza
+5 Gallina
+9 Gallinimus
+2 Condor
+3 Zorzal
+7 Loro
+4 Cacatua
+8 Papagallo
+6 Cotorra
