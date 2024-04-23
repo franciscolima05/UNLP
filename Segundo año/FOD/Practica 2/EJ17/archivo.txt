@@ -1,0 +1,72 @@
+1 La Plata
+1 Villa Elisa
+1 San Juan
+2 5 200
+1 La PLata
+1 Villa Elisa
+2 Narigon
+2 10 400
+1 La Plata
+1 Villa Elisa
+3 Roxanne
+2 25 150
+1 La Plata
+2 Ensenada
+1 Cristian
+3 4 400
+1 La Plata
+2 Ensenada
+2 Moreau
+3 10 300
+1 La Plata
+2 Ensenada
+3 Rosser
+4 15 200
+2 La Matanza
+1 Villa Palito
+1 San Juan
+2 5 450
+2 La Matanza
+1 Villa Palito
+2 Narigon
+2 10 400
+2 La Matanza
+1 Villa Palito
+3 Roxanne
+2 25 900
+2 La Matanza
+2 Esquina
+1 Cristian
+3 4 400
+2 La Matanza
+2 Esquina
+2 Moreau
+3 10 300
+2 La Matanza
+2 Esquina
+3 Rosser
+4 15 200
+3 Moron
+1 Villa Sapo
+1 San Juan
+2 5 200
+3 Moron
+1 Villa Sapo
+2 Narigon
+2 10 400
+3 Moron
+1 Villa Sapo
+3 Roxanne
+2 25 150
+3 Moron
+2 Ensenati
+1 Cristian
+3 4 400
+3 Moron
+2 Ensenati
+2 Moreau
+3 10 1000
+3 Moron
+2 Ensenati
+3 Rosser
+4 15 300
