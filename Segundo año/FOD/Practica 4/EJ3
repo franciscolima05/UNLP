@@ -1,0 +1,6 @@
+3)
+A) En u arbol B+, la información se almacena de la siguiente manera: 
+En las hojas se almacena toda la información del archivo mientras que en los nodos no terminales hay copias de los elementos.
+B)La particularidad es que todas las hojas se encuentran conectadas en una lista, esto para facilitar el recorrido secuencial.
+D)La búsqueda se realiza tomando el primer elemento y buscando en los hijos a las hojas que es donde se encuentran los valores. La diferencia respecto a la búsqueda en arboles B, es que al encontrar el elemento en un arbol B se detiene la búsqueda, mientras que en los arboles B+ solo se detiene la búsqueda al llegar a una hoja debido a que los nodos internos son solo copias de valores de las hojas.
+e) El proceso se daría de la siguiente manera, primero recorrería el arbol hasta llegar a la hoja mas chica que se encuentre entre los valores asignados, luego recorrería secuencialmente las hojas gracias a la lista hasta llegar a un elemento que ya no se encuentra en el rango.
