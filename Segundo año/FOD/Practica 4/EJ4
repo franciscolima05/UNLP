@@ -1,0 +1,31 @@
+4)
+A)El procedimiento posicionarYLeerNodo lo que hace es que te posiciona en la posición indicada por el parámetro NRR, y te lee el nodo que se encuentra ahi.
+Y se podría realizar de la siguiente manera:
+Procedure posicionarYLeerNodo(A, var nodo, NRR);
+Begin
+	while(a^.pos	 <> NRR) do 
+		begin
+			if(NRR<) then
+				posicionarYLeerNodo(a^.HijoIzquierdo, nodo, NRR);
+			else
+				posicionarYLeerNodo(a^.HijoDerecho, nodo, NRR);
+End;
+b)El procedimiento, claveEncontrada lo que hace es comparar una clave con la clave de un nodo y en caso de que sea true devuelve dicho valor en el parámetro pasado por referencia clave_encontrada.
+Procédure claveEncontrada(A, nodo, clave, pos, clave_encontrada);
+Var
+	ok : boolean;
+Begin
+	clave_encontrada := false;
+	while(pos < M) and not clave_encontrada do
+		begin
+			nodo := A^.datos[pos]
+			if(nodo.clave = clave) then
+				clave_encontrada := true
+			else
+				pos := pos + 1;
+		end;
+End;
+
+c)El error que yo le veo es que Utiliza una variable POS para moverse por los hijos al hacer el llamado recursivo, pero Pos no esta definida en ningun lado, ademas de que no se incrementa para pasar de un hijo al otro asi que estarías llamando recursivamente siempre con el mismo hijo
+
+d) Para que funcione en un arbol B+ habría que agregar la condición de no detenerse hasta llegar a una hoja, y luego buscar entre las hojas hasta encontrar el elemento utilizando la lista.
