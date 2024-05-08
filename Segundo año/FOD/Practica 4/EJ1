@@ -1,0 +1,16 @@
+1) 	
+
+	b) Como maximo podrían entrar 7 personas, ya que el orden seria 8 
+		512 = 4 + 64(M-1) + 4M
+		508 = 64M - 64 + 4M
+		573 = 68M
+		573 : 68 = M
+		8,4 = M
+
+	C)El impacto que tendrá será que al guardar toda la información, los registros seran mas pesados por lo que entraran menos x nodo y haciendo que M sea mas chico
+
+	D)Hay dos opciones, por legajo o por DNI
+
+	E) En el mejor de los casos se necesita 1 solo acceso, y en el peor H accesos siendo H la altura del Arbol.
+
+	F) Tendras que hacer N accesos ya que deberías si o si buscar en todo el arbol.
