@@ -1,0 +1,8 @@
+5) 
+	OverFlow: El overflow es una situación que se da cuando a un nodo del arbol se le desea insertar un elemento pero este en el caso de agregarse, rompería la propiedad de los arboles B de la cantidad de elementos = M - 1.
+
+	UnderFlow:  El underflow, es una situación similar a la de OverFlow, pero caso inverso ya que Este se da cuando se quiere eliminar un elemento del arbol pero al hacerlo romperia con la propiedad de los arboles B que dice todos los elementos salvo la raiz deben tener como mínimo (M/2 - 1) elementos.
+
+	Redistribución: La redistribución, es una forma de manejar el overflow en el cual, si se diese un Overflow Se divide al nodo por la mitad y se promociona uno de los elementos, generalmente el de mayor denominación de la derecha y se lo vuelve el padre de dos nodos hijos que el izquierdo contiene la mitad mas chica de los elementos del nodo y el derecho  la mitad mas grande mas el nuevo elemento a agregar.
+
+	Concatenacion: La concatenación, es una forma de manejar el UnderFlow en el cual En el caso de darse una situación de UnderFlow, se checkea si algún hermano adyacente al nodo en falta posee mas de M/2 - 1 elementos, en ese caso se redistribuyen los elementos entre estos dos nodos para que ambos tengan la cantidad de elementos suficiente para cumplir con las propiedades de los arboles B.
