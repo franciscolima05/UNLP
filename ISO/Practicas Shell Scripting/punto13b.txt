@@ -1,0 +1,17 @@
+echo "Ingresa Opcion    
+a) Listar
+b) DondeEstoy
+c) QuienEsta"
+read op
+case $op in
+        a)
+                ls
+        ;;
+        b)
+                pwd
+        ;;
+        c)
+                who
+        ;;
+esac
+

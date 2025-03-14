@@ -1,0 +1,10 @@
+find $1
+if [ $? = 1 ]
+then
+        echo "El archivo no existe"
+        mkdir $1
+else
+        echo "El archivo existe"
+        echo "El archivo es un: $(file "$1")"
+fi
+
