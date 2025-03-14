@@ -1,0 +1,16 @@
+Punto 1) 
+
+Primer Fragmento
+(1) aportes() de la clase gerente + montoBasico() de la clase gerente
+
+Segundo Fragmento
+
+(1) SueldoBasico() de la clase empleadoJerarquico + sueldoBasico() de la clase empleado 
++ montoBasico() de la clase gerente + aportes() de la clase gerente + montoBasico() 
+de la clase gerente + bonoPorCategoria() de la clase empleadoJerarquico 
+
+
+2) 
+
+	el primer fragmento retorna = 2850
+	el segundo fragmento retorna = 67.850
