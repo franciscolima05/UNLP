@@ -1,0 +1,15 @@
+echo "Ingrese dos numeros"
+read num1 num2
+multiplicacion=$(($num1*$num2))
+suma=$(($num1+$num2))
+resta=$(($num1-$num2))
+echo "Multiplicacion = $multiplicacion"
+echo "Suma = $suma"
+echo "Resta = $resta"
+if [ $num1 -gt $num2 ]
+then
+        echo "$num1 es mayor"
+else
+        echo "$num2 es mayor"
+fi
+
